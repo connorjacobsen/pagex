@@ -1,5 +1,7 @@
 # Pagex
 
+[![Hex.pm](https://img.shields.io/hexpm/v/pagex.svg)](https://hex.pm/packages/pagex) [![API Docs](https://img.shields.io/badge/api-docs-yellow.svg?style=flat)](http://hexdocs.pm/pagex/) [![Build Status](https://travis-ci.org/connorjacobsen/pagex.svg?branch=master)](https://travis-ci.org/connorjacobsen/pagex)
+
 Elixir client for V2 of the Pagerduty REST API.
 
 ## Installation
@@ -15,7 +17,18 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pagex](https://hexdocs.pm/pagex).
+## Usage
 
+Configure pagex for your application. By using the `{:system, "ENV_VAR_NAME"}` pattern, pagex will lookup the key at run time.
+
+```elixir
+config :pagex,
+  api_key: {:system, "PAGERDUTY_API_KEY"},
+  uri: {:system, "PAGERDUTY_URI"}
+```
+
+Creating an incident is simple:
+
+```elixir
+iex> Pagex.Incidents.create("Test Incident!", "MyServiceID", "me@example.org)
+```
