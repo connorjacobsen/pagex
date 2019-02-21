@@ -32,6 +32,7 @@ defmodule Pagex.MixProject do
   defp deps do
     [
       {:bypass, "~> 1.0", only: :test},
+      {:ex_doc, ">= 0.0.0", only: :dev},
       {:httpoison, ">= 0.9.0"},
       {:plug, "~> 1.7", only: :test},
       {:poison, ">= 3.0.0"},
