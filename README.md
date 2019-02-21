@@ -19,7 +19,17 @@ end
 
 ## Usage
 
-Configure pagex for your application. By using the `{:system, "ENV_VAR_NAME"}` pattern, pagex will lookup the key at run time.
+Configuration pagex for your application is simple, you only need to pass in your API Key and the Pagerduty base URI.
+
+```elixir
+config :pagex,
+  api_key: "SOME-API-KEY",
+  uri: "https://api.pagerduty.com"
+```
+
+Configurable URIs are useful for testing.
+
+You can also use the `{:system, "ENV_VAR_NAME"}` pattern to force pagex to lookup the value from the environment at run time.
 
 ```elixir
 config :pagex,
